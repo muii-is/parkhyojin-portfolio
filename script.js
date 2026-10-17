@@ -80,11 +80,11 @@ const projects = [
     1인 디자이너로 일하며 시즌별 콘셉트 기획부터 제품 그래픽, 캠페인 비주얼, 스타일링과 촬영,
     생산 및 판매 운영까지 참여하며 디자인을 실제 상품과 브랜드 경험으로 연결했다.
 OfftheCuff는 2026년 누적 매출 약 1억 480만 원과 인스타그램 팔로워 2,000명 이상을 기록했다.`,
-    cover: "OfftheCuff/하3.png",
-    hero: "OfftheCuff/하3.png",
+    cover: "offthecuff/하3.png",
+    hero: "offthecuff/하3.png",
     images: [
       ["p15_0.webp", "Campaign Key Visual", "wide"],
-      ["OfftheCuff/하3.png", "Campaign Photography", "wide"],
+      ["offthecuff/하3.png", "Campaign Photography", "wide"],
       ["p17_2.webp", "Apparel Campaign", ""],
       ["p17_0.webp", "Graphic Specification", ""],
       ["p18_9.webp", "Season Archive", ""]
@@ -126,8 +126,8 @@ OfftheCuff는 2026년 누적 매출 약 1억 480만 원과 인스타그램 팔�
 디지털 문화를 비주얼 콘셉트로 가져왔다. 그 시절의 사진 꾸미기 감성에서 출발한
 로고와 앨범 아트워크를 제작하고, NERDY 져지를 리폼해 스타일링과 촬영까지 진행했다.`,
 
-    cover: "lr-thumb.PNG",
-    hero: "love-revolution/IMG_0848.jpg",
+    cover: "lr-thumb.png",
+    hero: "love-revolution/IMG_0848.JPG",
     images: [],
 
     tooltip: "Unreleased album, visual identity, styling and photography."
@@ -268,8 +268,8 @@ OfftheCuff는 2026년 누적 매출 약 1억 480만 원과 인스타그램 팔�
     description: `독립 음악 크루 PEPPERONI PIZZA CLUB의 첫 번째 앨범 <THE 1ST DELIVERY>.
 크루의 로고와 비주얼 아이덴티티를 구축하고, 탑라인 제작과 녹음부터 앨범 아트워크, 티저 영상까지
 직접 제작했다. 음악과 비주얼을 하나의 아이덴티티로 연결한 독립 음악 프로젝트.`,
-    cover: "ppc-thumb.PNG",
-    hero: "ㅇㅇㄷ_2.PNG",
+    cover: "ppc-thumb.png",
+    hero: "ㅇㅇㄷ_2.png",
     images: [
       ["p32_0.webp", "Visual Identity", "wide"],
       ["p33_0.webp", "Photography", ""]
@@ -323,6 +323,7 @@ const homeThumbnailBySlug = {
   "valsason": "home-thumbs/vss.png",
   
   "aq-zenda": "home-thumbs/aq.png",
+  "pepperoni-pizza-club": "home-thumbs/ppc.png",
   
 };
 
@@ -1633,7 +1634,7 @@ function renderValsasonGallery(gallery) {
 
 function renderOfftheCuffGallery(gallery) {
 
-  const folder = `${ASSET}OfftheCuff/`;
+  const folder = `${ASSET}offthecuff/`;
 
   /* 01 — CAMPAIGN VISUALS */
 
@@ -1685,7 +1686,7 @@ function renderOfftheCuffGallery(gallery) {
       alt: "One Shoulder Top"
     },
     {
-      src: "원23.jpg",
+      src: "원23.JPG",
       alt: "Womenswear Editorial"
     },
     {
@@ -1746,7 +1747,7 @@ function renderOfftheCuffGallery(gallery) {
   
   const officialLinks = {
     instagram: "https://www.instagram.com/OfftheCuff_yonsei/",
-    website: "https://sites.google.com/view/OfftheCuff/home?pli=1&authuser=0"
+    website: "https://sites.google.com/view/offthecuff/home?pli=1&authuser=0"
   };
 
 
