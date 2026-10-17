@@ -4865,3 +4865,57 @@ body:has(#home:not([hidden])) .footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================
+   DESKTOP TYPOGRAPHY SCALE
+   이미지 크기 / 컨베이어 움직임 유지
+========================================= */
+
+@media (min-width: 801px) {
+
+  :root {
+    --body-text-size: 15px;
+    --cursor-size: 45px;
+  }
+
+  /* HEADER */
+  .header,
+  .header .logo,
+  .header .header-name,
+  .header nav a {
+    font-size: 15px;
+  }
+
+  /* WORKS + ABOUT */
+  .works-row-title,
+  .about h1.about-headline {
+    font-size: 37.5px;
+  }
+
+  .works-row-info {
+    font-size: 32.5px;
+  }
+
+  /* PROJECT MAIN TITLE */
+  .archive-title-group h1 {
+    font-size: clamp(80px, 8.75vw, 137.5px);
+  }
+
+  /* PROJECT SECTION TITLES */
+  .logbook-section-copy h2,
+  .ryu-feature-intro h2,
+  .valsason-intro h2,
+  .otc-section-heading h2,
+  .okelvin-intro h2,
+  .omphi-v2-intro h2 {
+    font-size: 56px;
+  }
+
+  /* INFORMATION */
+  .archive-meta span,
+  .about-fields,
+  .about-bio,
+  .about-links a {
+    font-size: 15px;
+  }
+}
