@@ -4876,7 +4876,8 @@ body:has(#home:not([hidden])) .footer {
   :root {
     --body-text-size: 15px;
     --section-title-size: 56px;
-    --cursor-size: 45px;
+    --cursor-size: 50px;
+    --thumbnail-height: 240px;
   }
 
   /* =====================================

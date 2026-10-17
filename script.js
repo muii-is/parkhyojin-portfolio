@@ -22,9 +22,9 @@ const projects = [
 
     description: `아티스트의 삶을 ‘항해와 기록’이라는 하나의 여정으로 담아낸 앨범, LOGBOOK.
 
-아티스트가 지나온 장소와 자연, 그곳에 남겨진 기억을 따라 듣는 이도 함께 길을 떠나기를 바랐다.
-바다 한가운데에서 미지의 땅을 찾아 나서듯, 각 트랙은 새로운 풍경이 되고 그 안의 심벌은
-저마다의 세계를 여는 열쇠가 된다.
+아티스트가 지나온 장소와 자연, 그곳에 남겨진 기억을 따라 듣는 이도
+함께 길을 떠나기를 바랐다. 바다 한가운데에서 미지의 땅을 찾아 나서듯,
+각 트랙은 새로운 풍경이 되고 그 안의 심벌은 저마다의 세계를 여는 열쇠가 된다.
 
 트랙리스트를 하나의 지도로, 음악 속 기억들을 고유한 기호와 이미지로 풀어내며,
 한 곡씩 따라갈 때마다 새로운 장소와 이야기를 발견하는 경험을 만들고자 했다.`,
@@ -79,7 +79,7 @@ const projects = [
 
     1인 디자이너로 일하며 시즌별 콘셉트 기획부터 제품 그래픽, 캠페인 비주얼, 스타일링과 촬영,
     생산 및 판매 운영까지 참여하며 디자인을 실제 상품과 브랜드 경험으로 연결했다.
-OfftheCuff는 2026년 누적 매출 약 1억 480만 원과 인스타그램 팔로워 2,000명 이상을 기록했다.`,
+2026년 누적 매출 약 1억 480만 원과 인스타그램 팔로워 2,000명 이상을 기록했다.`,
     cover: "offthecuff/하3.png",
     hero: "offthecuff/하3.png",
     images: [
@@ -158,7 +158,7 @@ OfftheCuff는 2026년 누적 매출 약 1억 480만 원과 인스타그램 팔�
 
     role: "Creative Direction, Product Design, Graphic Design, Character Design, Interactive Web, Physical Prototyping",
 
-    description: `omphi는 엄마와 딸을 잇는 배꼽(Omphalos)에서 출발한 인터랙티브 커뮤니케이션 제품 프로젝트다.
+    description: `omphi는 엄마와 딸을 잇는 배꼽(Omphalos)에서 출발한 인터랙티브 커뮤니케이션 프로젝트다.
 
 가장 가깝지만 때로는 솔직한 마음을 전하기 어려운 모녀 관계에 주목해, 말하지 않아도
 서로의 감정을 전달할 수 있는 펫 디바이스를 기획했다. 말랑이의 촉각적 재미와 사이버덱의 디지털 감성을 결합해 무거운 주제를 친근하고 유쾌하게 풀어내고, 제품부터 그래픽, 웹, 전시까지 하나의 경험으로 확장했다.`,
@@ -237,7 +237,7 @@ OfftheCuff는 2026년 누적 매출 약 1억 480만 원과 인스타그램 팔�
     slug: "valsason",
     title: "VALSASON",
     category: "PODCAST / CONTENT BRANDING",
-    type: "Independent Podcast",
+    type: "Podcast",
     year: "2024—2025",
 
     role: "Creative Direction, Graphic Design, Content Planning, Filming, Editing, Channel Operation",
@@ -266,8 +266,7 @@ OfftheCuff는 2026년 누적 매출 약 1억 480만 원과 인스타그램 팔�
     year: "2024",
     role:  "Logo Design, Production, A&R, Album Artwork, Film",
     description: `독립 음악 크루 PEPPERONI PIZZA CLUB의 첫 번째 앨범 <THE 1ST DELIVERY>.
-크루의 로고와 비주얼 아이덴티티를 구축하고, 탑라인 제작과 녹음부터 앨범 아트워크, 티저 영상까지
-직접 제작했다. 음악과 비주얼을 하나의 아이덴티티로 연결한 독립 음악 프로젝트.`,
+크루의 로고와 비주얼 아이덴티티를 구축하고, 탑라인 제작과 녹음부터 앨범 아트워크, 티저 영상까지 직접 제작했다. 음악과 비주얼을 하나의 아이덴티티로 연결한 독립 음악 프로젝트.`,
     cover: "ppc-thumb.png",
     hero: "ㅇㅇㄷ_2.png",
     images: [
@@ -1045,7 +1044,7 @@ function renderLogbookGallery(gallery) {
           <h2>Mapping the journey.</h2>
 
           <p>
-            송도, 몽골, 평창, 서울, 제주에서 출발한 지형을 하나의 가상 지도인 LOGBOOK으로 재구성했다.
+            송도, 몽골, 평창, 서울, 제주에서 출발한 지형을 하나의 가상 지도로 재구성했다.
             각 트랙의 이야기를 상징하는 기호를 제작하고, 이를 지도에 적용해 하나의 여정으로 연결했다.
           </p>
         </div>
@@ -1138,7 +1137,7 @@ function renderLogbookGallery(gallery) {
           <h2>The Tracklist.</h2>
 
           <p>
-            지도와 각 트랙의 심벌을 앨범 트랙리스트에 적용해, 음악을 따라 새로운 세계를 발견하게끔 하였다.
+            트랙리스트를 하나의 지도처럼 제작해 트랙이 새로운 길의 지표가 되도록 하였다.
           </p>
         </div>
 
@@ -1217,7 +1216,8 @@ function renderLogbookGallery(gallery) {
           <h2>The journey unfolds.</h2>
 
           <p>
-            첫 트랙인 <GODONG>의 뮤직비디오에 각 트랙별 심벌을 순서대로 등장시켜 앞으로 펼쳐질 여정을 암시하도록 구성했다.
+            첫 트랙인 <GODONG>의 뮤직비디오에 각 트랙별 심벌을 순서대로 등장시켜
+            앞으로 펼쳐질 여정을 암시하도록 구성했다.
           </p>
         </div>
 
@@ -1587,7 +1587,7 @@ function renderValsasonGallery(gallery) {
         <div class="valsason-intro">
           <h2>Made to circulate.</h2>
           <p>본편의 대화를 짧고 직관적인 영상으로 재구성해 인스타그램 릴스와 숏폼 콘텐츠로 확장했다.
-주목도를 높이는 장면 구성과 편집 리듬, 후킹을 위한 제목을 통해 새로운 시청자들의 유입을 유도했다.</p>
+주목도를 높이는 장면 구성과 편집 리듬, 제목을 통해 새로운 시청자들의 유입을 유도했다.</p>
         </div>
 
         <div class="valsason-reels">
@@ -2472,8 +2472,8 @@ function renderomphiGallery(gallery) {
           <h2>Touch becomes emotion.</h2>
 
           <p>
-            말랑한 실리콘 소재의 펫을 누르거나 감싸 안고, 쓰다듬는 행동에 따라 빛과 표정으로 반응하도록 기획했다.
-            Arduino 프로그래밍과 회로 연결, 납땜을 직접 진행해 실제로 작동하는 피지컬 프로토타입을 구현했다.
+            말랑한 실리콘 소재의 펫을 누르거나 감싸 안고, 쓰다듬는 행동에 따라 빛과 표정으로 반응하도록 기획했다. Arduino 프로그래밍과 회로 연결, 납땜을 직접 진행해
+            실제로 작동하는 피지컬 프로토타입을 구현했다.
           </p>
         </div>
 
@@ -2570,8 +2570,8 @@ function renderomphiGallery(gallery) {
             <h2>Make feelings visible.</h2>
 
             <p>
-              omphi Pet을 허브에 도킹한 뒤 대화 주제와 감정을 고르면, 각각의 마음이 고유한 심볼과 색으로 나타난다.
-              두 사람이 선택한 키워드가 같을 때는 공통된 색으로 연결되어, 자연스럽게 대화를 시작하는 계기를 만든다.
+              omphi Pet을 허브에 도킹한 뒤 대화 주제와 감정을 고르면, 각각의 마음이 고유한 심볼과 색으로 나타난다. 두 사람이 선택한 키워드가 같을 때는 공통된 색으로 연결되어,
+              자연스럽게 대화를 시작하는 계기를 만든다.
             </p>
           </div>
 
@@ -2618,8 +2618,8 @@ function renderomphiGallery(gallery) {
           <h2>A language of feelings.</h2>
 
           <p>
-            엄마와 딸을 이어주는 배꼽 역할을 하는 omphi에 다양한 감정을 담아내기 위해,
-            표정과 그래픽 모티프를 디자인했다. 배꼽의 형태에서 영감을 받아 둥근 형태와 곡선을 사용하였다.
+            엄마와 딸을 이어주는 배꼽 역할을 하는 omphi에 다양한 감정을 담아내기 위해
+            표정과 그래픽 모티프를 디자인했다. 배꼽의 형태에서 영감을 받아 둥근 형태를 활용하였다.
             
           </p>
         </div>
@@ -2672,8 +2672,8 @@ function renderomphiGallery(gallery) {
           <h2>From touch to screen.</h2>
 
           <p>
-            제품의 감정 표현과 연결 경험을 웹으로 확장했다. 3D 제품 탐색, 캐릭터 표정 변화, 심볼 생성과 도킹,
-            포토부스까지 웹 인터랙션으로 구현해 온라인으로도 omphi의 세계를 직접 체험하도록 했다.
+            제품의 감정 표현과 연결 경험을 웹으로 확장했다. 3D 제품 탐색, 캐릭터 표정 변화,
+            심볼 생성과 도킹까지 웹 인터랙션으로 구현해 온라인으로도 omphi의 세계를 직접 체험하도록 했다.
           </p>
         </div>
 
