@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Park Hyojin Graphic Design Portfolio">
+  <title>PARK HYOJIN — Selected Works</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+  <script
+    type="module"
+    src="https://cdnjs.cloudflare.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js">
+  </script>
+</head>
+
+<body>
+
+  <!-- CUSTOM CURSOR -->
+  <div id="characterCursor" class="character-cursor" aria-hidden="true">
+    <img class="cursor-art cursor-light"
+         src="./assets/cursor-02.png" alt="">
+    <img class="cursor-art cursor-dark"
+         src="./assets/cursor-01.png" alt="">
+    <div id="cursorBubble" class="cursor-bubble"></div>
+  </div>
+
+  <!-- GLOBAL HEADER -->
+  <header class="header">
+    <a class="logo" href="#home">CAM DESIGN PORTFOLIO</a>
+    <span class="header-name">PARKHYOJIN</span>
+
+    <nav>
+      <a href="#works">WORKS</a>
+      <a href="#about">ABOUT</a>
+      <a href="mailto:parkhj9476@naver.com">CONTACT ↗</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HOME -->
+    <section id="home" class="page home">
+      <div id="conveyor" class="conveyor-viewport">
+        <div id="conveyorTrack" class="conveyor-track"></div>
+      </div>
+    </section>
+
+    <!-- WORKS INDEX -->
+    <section id="works" class="page works-page" hidden>
+
+      <section class="works-section">
+        <h2>PROJECTS</h2>
+        <div id="projectsList" class="works-list"></div>
+      </section>
+
+      <section class="works-section">
+        <h2>MORE WORKS</h2>
+        <div id="visualsList" class="works-list"></div>
+      </section>
+
+      <div id="worksHoverPreview"
+           class="works-hover-preview"
+           aria-hidden="true">
+        <img id="worksHoverImage" alt="">
+      </div>
+
+    </section>
+
+    <!-- SMALL PROJECT POPUP -->
+    <section id="preview"
+             class="preview-modal"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="previewTitle"
+             hidden>
+
+      <div id="modalBackdrop" class="modal-backdrop"></div>
+
+      <div class="modal-window">
+
+        <div class="modal-heading">
+          <div>
+            <span id="previewNumber" class="modal-index"></span>
+            <h2 id="previewTitle"></h2>
+          </div>
+
+          <button id="previewBack"
+                  class="modal-close"
+                  aria-label="Close preview">×</button>
+        </div>
+
+        <div id="previewGallery" class="modal-gallery"></div>
+
+        <div class="modal-footer">
+          <span id="previewCategory" class="modal-category"></span>
+          <button id="previewOpen" class="modal-open">
+            VIEW PROJECT ↗
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FULL PROJECT ARCHIVE -->
+    <section id="archive" class="page archive" hidden>
+
+      <div class="archive-navigation">
+        <button id="archiveBack">← PREVIOUS PROJECT</button>
+        <span id="archiveNumber"></span>
+        <button id="archiveNext">NEXT PROJECT →</button>
+      </div>
+
+      <!-- COMMON HERO: ALL PROJECTS -->
+      <figure id="projectHero" class="project-hero" hidden>
+        <img id="projectHeroImage" alt="">
+      </figure>
+
+      <!-- PROJECT INFORMATION -->
+      <div class="archive-heading">
+
+        <div class="archive-title-group">
+          <h1 id="archiveTitle"></h1>
+          <p id="archiveSubtitle" class="archive-subtitle" hidden></p>
+        </div>
+
+        <div class="archive-description">
+          <p id="archiveDescription"></p>
+
+          <div class="archive-meta">
+
+            <span>CATEGORY</span>
+            <span id="archiveCategory"></span>
+
+            <span>YEAR</span>
+            <span id="archiveYear"></span>
+
+            <span>ROLE</span>
+            <span id="archiveRole"></span>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PROJECT CONTENT -->
+      <div id="archiveGallery" class="archive-gallery"></div>
+
+      <div class="archive-footer">
+        <a href="#works">← ALL WORKS</a>
+        <button id="nextProject">NEXT PROJECT →</button>
+      </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <div class="about-layout">
+
+        <h1 class="about-headline">
+          HEAR MUSIC.
+          <span>WITH YOUR EYES.</span>
+        </h1>
+
+        <div class="about-fields">
+          <span>GRAPHIC DESIGN</span>
+          <span>ART DIRECTION</span>
+          <span>MERCHANDISE</span>
+          <span>INTERACTIVE EXPERIENCE</span>
+        </div>
+
+        <p class="about-bio">
+          음악과 문화의 시각적 정체성을 만들고,
+          그래픽을 앨범, 공연, 머천다이즈와
+          디지털 경험으로 확장하는 그래픽 디자이너입니다.
+        </p>
+
+        <div class="about-links">
+          <a href="mailto:parkhj9476@naver.com">EMAIL ↗</a>
+            <a href="https://www.instagram.com/muii.is/"
+               target="_blank"
+               rel="noopener noreferrer">INSTAGRAM ↗</a>
+            <a
+              href="https://on.soundcloud.com/SEwtau2caGtTxxtMa8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              SOUND CLOUD ↗
+            </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 park hyojin</span>
+    <span>graphic design &amp; art direction</span>
+  </footer>
+
+</body>
+</html>

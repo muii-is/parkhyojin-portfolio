@@ -1,0 +1,4867 @@
+
+/* =========================================
+   PARK HYOJIN PORTFOLIO
+   CLEAN CSS — V16 / CONSOLIDATED
+
+   01. VARIABLES & RESET
+   02. GLOBAL HEADER
+   03. HOME / CONVEYOR
+   04. CUSTOM CURSOR
+   05. WORKS INDEX
+   06. PREVIEW MODAL
+   07. PROJECT ARCHIVE
+   08. LOGBOOK
+   09. RYU
+   10. VALSASON
+   11. OFFTHECUFF
+   12. ABOUT & FOOTER
+   13. RESPONSIVE
+========================================= */
+
+/* =========================================
+   PORTFOLIO FONTS
+========================================= */
+
+/* ENGLISH — REGULAR */
+@font-face {
+  font-family: "Site Helvetica";
+  src: url("./assets/fonts/Helvetica.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ENGLISH — BOLD */
+@font-face {
+  font-family: "Site Helvetica";
+  src: url("./assets/fonts/Helvetica Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* KOREAN — PRETENDARD */
+@font-face {
+  font-family: "Pretendard Variable";
+  src: url("./assets/fonts/PretendardVariable.woff2") format("woff2");
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* =========================================
+   01. VARIABLES & RESET
+========================================= */
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --gray: #888888;
+  --line: #dddddd;
+
+  --margin: clamp(20px, 2.5vw, 48px);
+  --header-height: 64px;
+
+  --cursor-size: 36px;
+  --thumbnail-height: 220px;
+  --belt-gap: 5px;
+
+  --body-text-size: 12px;
+
+  /* SHARED PROJECT LAYOUT */
+  --project-left: 48%;
+  --project-right: 46%;
+  --project-column-gap: 6%;
+
+  --section-title-size: 45px;
+  --section-gap: 140px;
+
+  /* LOGBOOK */
+  --logbook-map-gap: 52px;
+  --logbook-map-image-height: 360px;
+
+  --logbook-symbol-gap: 8px;
+  --logbook-symbol-height: 160px;
+
+  --logbook-final-width: 60%;
+  --logbook-final-offset: -100px;
+
+  --logbook-tracklist-width: 88%;
+  --logbook-photo-height: 380px;
+
+  /* RYU */
+  --ryu-poster-height: 76vh;
+  --ryu-archive-gap: 12px;
+  --ryu-archive-height: 430px;
+  --ryu-merchandise-height: 650px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--black);
+  color: var(--white);
+
+  font-family: Arial, "Pretendard Variable", sans-serif;
+  -webkit-font-smoothing: antialiased;
+
+  overflow-x: hidden;
+  cursor: none;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+}
+
+a,
+button {
+  font: inherit;
+  color: inherit;
+  cursor: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+a:hover,
+button:hover {
+  opacity: .7;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body.white-theme {
+  background: #fff;
+  color: #111;
+}
+
+
+/* =========================================
+   SHARED TYPOGRAPHY
+========================================= */
+
+/* 직접 입력한 엔터를 화면에 반영 */
+
+.archive-description > p,
+.logbook-section-copy p,
+.ryu-feature-intro p,
+.ryu-reminisce-caption,
+.ryu-reminisce-description,
+.about-content p {
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+/* 프로젝트 공통 본문 */
+
+.archive-description > p,
+.logbook-section-copy p,
+.ryu-feature-intro p,
+.about-content p {
+  font-size: var(--body-text-size);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.015em;
+}
+
+
+/* =========================================
+   02. GLOBAL HEADER
+========================================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  width: 100%;
+  height: var(--header-height);
+  padding: 0 var(--margin);
+
+  background: var(--black);
+  color: #fff;
+
+  font-family: Arial, "Pretendard Variable", sans-serif;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1;
+}
+
+.logo {
+  justify-self: start;
+  
+}
+
+.header-name {
+  justify-self: center;
+  white-space: nowrap;
+}
+
+.header nav {
+  justify-self: end;
+
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  white-space: nowrap;
+}
+
+.header nav a {
+  display: inline-flex;
+  align-items: center;
+  height: var(--header-height);
+}
+
+body.white-theme .header {
+  background: #fff;
+  color: #111;
+}
+
+/* Hero 상단에서는 투명 헤더 */
+
+body.white-theme.archive-hero-top .header {
+  background: transparent;
+  color: #fff;
+}
+
+body.white-theme:not(.archive-hero-top) .header {
+  background: #fff;
+  color: #111;
+}
+
+
+/* =========================================
+   03. HOME / CONVEYOR
+========================================= */
+
+.home {
+  height: 100svh;
+  min-height: 560px;
+  padding-top: var(--header-height);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  overflow: hidden;
+}
+
+.conveyor-viewport {
+  width: 100%;
+  height: min(340px, 42vh);
+  min-height: 220px;
+  flex-shrink: 0;
+
+  margin-bottom: 10px;
+
+  overflow: hidden;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.conveyor-track {
+  display: flex;
+  align-items: center;
+  gap: var(--belt-gap);
+
+  width: max-content;
+  height: 100%;
+
+  will-change: transform;
+}
+
+.work-item {
+  position: relative;
+  flex: 0 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  opacity: 1;
+  transition: opacity .25s ease;
+
+  outline-offset: 4px;
+}
+
+.work-image-wrap {
+  height: var(--thumbnail-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* HOME — CONTRAST BLACK & WHITE */
+
+.work-image {
+  display: block;
+  width: auto;
+  height: var(--thumbnail-height);
+
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+
+  /* 선명하고 대비감 있는 흑백 */
+  filter:
+    grayscale(100%)
+    contrast(1.3)
+    brightness(1.08);
+
+  transition:
+    filter 0.45s ease,
+    transform 0.3s ease;
+}
+
+/* HOVER — 원래 컬러로 복원 */
+.work-item:hover .work-image,
+.work-item:focus-visible .work-image {
+  filter:
+    grayscale(0%)
+    contrast(1)
+    brightness(1);
+
+  transform: scale(1.07);
+}
+
+
+/* 마우스 오버 */
+
+.conveyor-track:has(.work-item:hover) .work-item {
+  opacity: .42;
+}
+
+.conveyor-track:has(.work-item:hover) .work-item:hover,
+.work-item:focus-visible {
+  opacity: 1;
+  z-index: 5;
+}
+
+.work-item:hover .work-image,
+.work-item:focus-visible .work-image {
+  transform: scale(1.07);
+}
+
+.work-caption {
+  display: none;
+}
+
+
+/* =========================================
+   04. CUSTOM CHARACTER CURSOR
+========================================= */
+
+.character-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.character-cursor.visible {
+  opacity: 1;
+}
+
+.cursor-art {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  transition: transform .2s ease;
+}
+
+.cursor-light {
+  display: block;
+}
+
+.cursor-dark {
+  display: none;
+}
+
+body.white-theme .cursor-light {
+  display: none;
+}
+
+body.white-theme .cursor-dark {
+  display: block;
+}
+
+.character-cursor.talking .cursor-art {
+  transform: scale(1.08);
+}
+
+.cursor-bubble {
+  position: absolute;
+  top: 8px;
+  left: 49px;
+
+  width: max-content;
+  max-width: 260px;
+
+  color: #fff;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.45;
+
+  white-space: pre-line;
+  word-break: keep-all;
+
+  text-shadow:
+    0 1px 5px #000,
+    0 3px 14px #000;
+
+  opacity: 0;
+}
+
+.character-cursor.talking .cursor-bubble {
+  opacity: 1;
+}
+
+body.white-theme .cursor-bubble {
+  color: #111;
+  text-shadow: 0 1px 6px #fff;
+}
+
+body.modal-open .character-cursor {
+  opacity: 0;
+}
+
+/* 클릭 잔상 */
+
+.cursor-stamp {
+  position: fixed;
+  z-index: 9998;
+
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+
+  object-fit: contain;
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+
+  animation: cursorEcho .85s ease-out forwards;
+}
+
+@keyframes cursorEcho {
+  0% {
+    opacity: .55;
+    filter: blur(0);
+  }
+
+  50% {
+    opacity: .3;
+    filter: blur(2px);
+  }
+
+  100% {
+    opacity: 0;
+    filter: blur(7px);
+  }
+}
+
+
+/* =========================================
+   05. WORKS INDEX
+========================================= */
+
+.works-page {
+  padding: 105px var(--margin) 20px;
+  background: #fff;
+  color: #111;
+}
+
+.works-section {
+  margin-bottom: 35px;
+}
+
+.works-section h2 {
+  margin: 0 0 12px;
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+
+  text-transform: lowercase;
+}
+
+.works-list {
+  border-top: 1px solid #777;
+}
+
+.works-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px 175px;
+  align-items: center;
+  gap: 18px;
+
+  padding: 2px 4px;
+  border-bottom: 1px solid var(--line);
+
+  color: #111;
+
+  transition:
+    background-color .2s,
+    padding-left .2s;
+}
+
+.works-row:hover,
+.works-row:focus-visible {
+  background: #f4f4f4;
+  padding-left: 12px;
+  opacity: 1;
+}
+
+.works-row-title {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -.045em;
+  line-height: 1;
+
+  overflow-wrap: anywhere;
+}
+
+.works-row-info {
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.04em;
+  color: #777;
+}
+
+.works-row-year {
+  text-align: right;
+}
+
+/* Hover Preview */
+
+.works-hover-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 110;
+
+  width: clamp(180px, 22vw, 340px);
+
+  transform: translate(-50%, -50%);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity .2s;
+}
+
+.works-hover-preview.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.works-hover-preview img {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+
+  object-fit: contain;
+
+  filter: drop-shadow(
+    0 12px 24px rgba(0, 0, 0, .14)
+  );
+}
+
+
+/* =========================================
+   06. PREVIEW MODAL
+========================================= */
+
+.preview-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, .68);
+  backdrop-filter: blur(6px);
+}
+
+.modal-window {
+  position: relative;
+
+  width: min(780px, 100%);
+  max-height: calc(100dvh - 48px);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px;
+  overflow: hidden;
+
+  background: #f7f7f5;
+  color: #111;
+
+  box-shadow: 0 24px 90px rgba(0, 0, 0, .3);
+}
+
+.modal-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.modal-index {
+  font-size: 10px;
+  color: #888;
+}
+
+.modal-heading h2 {
+  margin: 7px 0 0;
+
+  font-size: clamp(25px, 3vw, 42px);
+  font-weight: 700;
+  letter-spacing: -.06em;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.modal-close {
+  font-size: 22px;
+  color: #111;
+}
+
+.modal-gallery {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  height: clamp(185px, 37vh, 345px);
+  min-height: 0;
+
+  margin: 27px 0 22px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scrollbar-width: thin;
+  cursor: pointer;
+}
+
+.modal-gallery img {
+  display: block;
+  flex: 0 0 auto;
+
+  width: auto;
+  height: 83%;
+  max-width: 65%;
+
+  object-fit: contain;
+}
+
+.modal-gallery img:nth-child(2) {
+  height: 67%;
+}
+
+.modal-gallery img:nth-child(3) {
+  height: 75%;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  padding-top: 17px;
+  border-top: 1px solid #ddd;
+}
+
+.modal-category {
+  font-size: 10px;
+  line-height: 1.5;
+  color: #777;
+}
+
+.modal-open {
+  font-size: 11px;
+  font-weight: 700;
+  color: #111;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+
+/* =========================================
+   07. FULL PROJECT ARCHIVE
+========================================= */
+
+.archive {
+  position: relative;
+
+  min-height: 100svh;
+  padding: 0 var(--margin) 80px;
+
+  background: #fff;
+  color: #111;
+}
+
+/* Previous / Next Navigation */
+
+.archive-navigation {
+  position: absolute;
+  z-index: 10;
+
+  top: calc(var(--header-height) + 30px);
+  left: var(--margin);
+  right: var(--margin);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  padding: 0;
+  border: 0;
+
+  color: #fff;
+  font-size: 11px;
+
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .4);
+}
+
+/* FULL BLEED HERO */
+
+.project-hero {
+  position: relative;
+
+  width: 100vw;
+  height: 100svh;
+
+  margin: 0 0 0 calc(-1 * var(--margin));
+
+  overflow: hidden;
+  background: #fff;
+}
+
+.project-hero img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Hero 하단 흰색 그라디언트 */
+
+.project-hero::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0) 70%,
+    rgba(255,255,255,.4) 88%,
+    #fff 100%
+  );
+}
+
+
+/* =========================================
+   MAIN PROJECT HEADING
+   ★ 상단 정렬
+========================================= */
+
+.archive-heading {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, var(--project-left))
+    minmax(0, var(--project-right));
+
+  column-gap: var(--project-column-gap);
+
+  /* 메인 제목은 본문 상단에 정렬 */
+  align-items: start;
+
+  padding: 100px 0 110px;
+}
+
+.archive-title-group {
+  position: relative;
+  min-width: 0;
+
+  align-self: start;
+
+  margin: 0;
+  padding: 0;
+}
+
+.archive-title-group h1 {
+  position: static;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: clamp(64px, 7vw, 110px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.065em;
+
+  overflow-wrap: anywhere;
+}
+
+.archive-description {
+  min-width: 0;
+  width: 100%;
+
+  align-self: start;
+
+  margin: 0;
+  padding: 0;
+}
+
+.archive-description > p {
+  width: 100%;
+  max-width: 540px;
+
+  margin: 0 0 25px;
+
+  font-size: var(--body-text-size);
+  line-height: 1.8;
+
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+/* PROJECT META TABLE */
+
+.archive-meta {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  gap: 0 24px;
+
+  margin-top: 35px;
+  border-top: 1px solid #ddd;
+}
+
+.archive-meta span {
+  padding: 14px 0;
+  border-bottom: 1px solid #ddd;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -.015em;
+}
+
+.archive-meta span:nth-child(odd) {
+  color: #888;
+}
+
+.archive-meta span:nth-child(even) {
+  color: #111;
+}
+
+
+/* =========================================
+   DEFAULT PROJECT GALLERY
+========================================= */
+
+.archive-gallery {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.gallery-item {
+  grid-column: span 6;
+  min-width: 0;
+  margin: 0;
+}
+
+.gallery-item.wide {
+  grid-column: span 12;
+}
+
+.gallery-item.narrow {
+  grid-column: span 4;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #f5f5f5;
+}
+
+.gallery-item figcaption {
+  margin-top: 12px;
+  color: #888;
+  font-size: 10px;
+}
+
+.archive-footer {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 95px;
+  padding-top: 25px;
+
+  border-top: 1px solid #ddd;
+  font-size: 11px;
+}
+
+
+/* =========================================
+   SHARED SECTION INTRO
+   ★ 섹션 소제목은 세로 중앙 정렬
+========================================= */
+
+.logbook-section-copy,
+.ryu-feature-intro {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, var(--project-left))
+    minmax(0, var(--project-right));
+
+  column-gap: var(--project-column-gap);
+
+  width: 100%;
+
+  /* 제목과 본문의 세로 중심 일치 */
+  align-items: center;
+}
+
+.logbook-section-copy h2,
+.ryu-feature-intro h2 {
+  margin: 0;
+  padding: 0;
+
+  font-size: var(--section-title-size);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -.055em;
+
+  transform: none;
+}
+
+.logbook-section-copy p,
+.ryu-feature-intro p {
+  width: 100%;
+  max-width: 540px;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: var(--body-text-size);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -.015em;
+
+  word-break: keep-all;
+  white-space: pre-line;
+
+  align-self: center;
+}
+
+
+/* =========================================
+   08. LOGBOOK
+========================================= */
+
+.archive-gallery > .logbook-layout {
+  grid-column: 1 / -1;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.logbook-layout figure {
+  margin: 0;
+  min-width: 0;
+  background: transparent;
+}
+
+.logbook-layout img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.logbook-section {
+  width: 100%;
+  min-width: 0;
+
+  margin-bottom: var(--section-gap);
+}
+
+/* SECTION LABELS */
+
+.logbook-section-head,
+.logbook-subsection-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+
+  width: 100%;
+
+  margin: 0 0 18px;
+  padding: 0;
+  border: 0;
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -.01em;
+  color: #111;
+}
+
+.logbook-section-head span,
+.logbook-subsection-heading span {
+  display: block;
+}
+
+.logbook-section-head span:last-child,
+.logbook-subsection-heading span:last-child {
+  text-align: right;
+}
+
+/* SECTION INTRO */
+
+.logbook-section-copy {
+  padding: 34px 0 52px;
+}
+
+
+/* =========================================
+   LOGBOOK — 01 VISUAL SYSTEM
+========================================= */
+
+.logbook-maps-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: var(--logbook-map-gap);
+  align-items: start;
+
+  width: 100%;
+}
+
+.logbook-maps-grid figure {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.logbook-map-media {
+  height: var(--logbook-map-image-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logbook-map-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 캡션을 이미지 위에 배치 */
+
+.logbook-maps-grid figcaption {
+  order: -1;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+
+  margin: 0;
+
+  font-size: 11px;
+  line-height: 1.35;
+  letter-spacing: -.01em;
+}
+
+.logbook-maps-grid figcaption strong {
+  flex: 0 0 auto;
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #111;
+}
+
+.logbook-maps-grid figcaption span {
+  flex: 1;
+
+  text-align: right;
+
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #8a8a8a;
+}
+
+/* SOURCE MAPS */
+
+.logbook-map-source img {
+  transform: translate(-20px, -10px) scale(1.1);
+  transform-origin: center;
+}
+
+/* TOPOGRAPHY */
+
+.logbook-map-terrain img {
+  transform: translate(-20px, -10px) scale(1.2);
+  transform-origin: center;
+}
+
+
+/* =========================================
+   LOGBOOK — TRACK SYMBOLS
+========================================= */
+
+.logbook-subsection-heading {
+  margin: 76px 0 18px;
+}
+
+.logbook-symbol-row {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: var(--logbook-symbol-gap);
+
+  align-items: center;
+  width: 100%;
+}
+
+.logbook-symbol-item {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logbook-symbol-item img {
+  width: 100%;
+  height: var(--logbook-symbol-height);
+  object-fit: contain;
+}
+
+.logbook-symbol-item figcaption {
+  align-self: center;
+
+  margin-top: 10px;
+
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #8a8a8a;
+}
+
+
+/* =========================================
+   LOGBOOK — FINAL MAP
+========================================= */
+
+.logbook-final-heading {
+  margin-top: 76px;
+}
+
+.logbook-final-map {
+  width: var(--logbook-final-width);
+  margin: var(--logbook-final-offset) auto 0 !important;
+}
+
+.logbook-final-map img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+  transform: none;
+}
+
+
+/* =========================================
+   LOGBOOK — 02 TRACKLIST
+========================================= */
+
+.logbook-tracklist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+
+  gap: 24px;
+
+  width: var(--logbook-tracklist-width);
+  margin: 0 auto;
+}
+
+.logbook-tracklist-grid img {
+  width: 100%;
+  height: auto;
+}
+
+
+/* =========================================
+   LOGBOOK — FULL BLEED CONCEPT PHOTOS
+========================================= */
+
+.logbook-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 5px;
+  align-items: stretch;
+
+  width: calc(100% + var(--margin) * 2);
+  margin-left: calc(-1 * var(--margin));
+  margin-right: 0;
+  padding: 0;
+}
+
+.logbook-photo-grid figure {
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.logbook-photo-grid img {
+  display: block;
+  width: 100%;
+  height: var(--logbook-photo-height);
+  object-fit: cover;
+  object-position: center;
+}
+
+/* TABLET */
+
+@media (max-width: 800px) {
+  .logbook-photo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 520px) {
+  .logbook-photo-grid {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .logbook-photo-grid img {
+    height: auto;
+  }
+}
+
+
+/* =========================================
+   LOGBOOK — 04 MUSIC VIDEO
+========================================= */
+
+.logbook-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  background: #111;
+  overflow: hidden;
+}
+
+.logbook-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
+/* =========================================
+   09. RYU
+========================================= */
+
+.archive-gallery > .ryu-layout {
+  grid-column: 1 / -1;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.ryu-section {
+  margin-bottom: 110px;
+}
+
+/* SECTION LABELS */
+
+.ryu-section-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  margin-bottom: 36px;
+
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.ryu-section-label span:last-child {
+  text-align: right;
+}
+
+/* SECTION INTRO */
+
+.ryu-feature-intro {
+  margin: 42px 0 50px;
+}
+
+/* GENERAL IMAGE */
+
+.ryu-image {
+  min-width: 0;
+  margin: 0;
+}
+
+.ryu-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* =========================================
+   RYU — 01 CONCERT VISUALS
+========================================= */
+
+/* REMINISCE MAIN POSTER */
+
+.ryu-feature-poster {
+  width: 100%;
+  margin-bottom: 110px;
+}
+
+.ryu-feature-poster .ryu-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+.ryu-feature-poster img {
+  display: block;
+
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: var(--ryu-poster-height);
+
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* REMINISCE CAPTION */
+
+.ryu-reminisce-caption,
+.ryu-reminisce-description {
+  max-width: 520px;
+
+  margin: 22px auto 0;
+
+  text-align: center;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -.015em;
+
+  word-break: keep-all;
+  white-space: pre-line;
+
+  color: #111;
+}
+
+/* ARCHIVE LABEL */
+
+.ryu-archive-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  margin: 0 0 24px;
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* FOUR POSTERS — NO SCROLL */
+
+.ryu-poster-archive {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: var(--ryu-archive-gap);
+
+  width: 100%;
+  overflow: visible;
+  padding: 0;
+}
+
+.ryu-archive-poster {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+.ryu-archive-poster img {
+  display: block;
+
+  width: 100%;
+  height: var(--ryu-archive-height);
+
+  object-fit: contain;
+}
+
+.ryu-archive-poster figcaption {
+  display: block;
+
+  width: 100%;
+  margin-top: 12px;
+
+  text-align: center;
+
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #111;
+}
+
+/* POSTER TITLE */
+
+.ryu-poster-title {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #111;
+}
+
+/* 이전 번호 마크업과의 호환성 */
+
+.ryu-poster-number {
+  display: none;
+}
+
+
+/* =========================================
+   RYU — 02 MERCHANDISE
+========================================= */
+
+.ryu-merchandise {
+  width: 100%;
+}
+
+.ryu-merchandise .ryu-image {
+  width: 100%;
+}
+
+.ryu-merchandise img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+  max-height: var(--ryu-merchandise-height);
+
+  object-fit: contain;
+}
+
+/* 이전 레이아웃 클래스 호환 */
+
+.ryu-contents {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 24px;
+  align-items: start;
+}
+
+.ryu-posters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 24px;
+  align-items: start;
+}
+
+/* =========================================
+   RYU — 03 MUSIC VIDEO
+========================================= */
+
+.ryu-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0;
+  background: #111;
+  overflow: hidden;
+}
+
+.ryu-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+/* =====================================
+   VALSASON — CUSTOM PROJECT
+===================================== */
+
+.archive-gallery > .valsason-layout {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
+}
+
+.valsason-section {
+  margin-bottom: 140px;
+}
+
+.valsason-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-bottom: 36px;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.valsason-label span:last-child {
+  text-align: right;
+}
+
+/* PROJECT IMPACT */
+
+.valsason-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  padding: 18px 0;
+  margin-bottom: 135px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.valsason-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.valsason-stats strong {
+  font-size: clamp(34px, 5vw, 72px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.06em;
+}
+
+.valsason-stats span {
+  color: #888;
+  font-size: 11px;
+}
+
+/* SECTION INTRO */
+
+.valsason-intro {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 48%) minmax(0, 46%);
+  column-gap: 6%;
+
+  align-items: center;
+  margin: 42px 0 55px;
+}
+
+.valsason-intro h2 {
+  margin: 0;
+
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -.055em;
+}
+
+.valsason-intro p {
+  max-width: 540px;
+  margin: 0;
+
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: -.015em;
+
+  word-break: keep-all;
+  white-space: pre-line;
+}
+
+/* LOGO */
+
+.valsason-logo {
+  margin: 0;
+  width: 100%;
+  background: #000;
+}
+
+.valsason-logo img {
+  display: block;
+  width: 100%;
+  max-height: 560px;
+  object-fit: contain;
+}
+
+/* FOUR RULES */
+
+.valsason-posters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.valsason-posters figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.valsason-posters img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* EPISODES */
+
+.valsason-episodes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.valsason-episodes figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.valsason-episodes img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.valsason-episodes figcaption {
+  margin-top: 12px;
+  font-size: 10px;
+  color: #888;
+}
+
+/* PRODUCTION */
+
+.valsason-production {
+  margin-top: 60px;
+  padding: 18px 0;
+
+  border-top: 1px solid #ddd;
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .valsason-section {
+    margin-bottom: 80px;
+  }
+
+  .valsason-intro {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin: 30px 0 40px;
+  }
+
+  .valsason-intro h2 {
+    font-size: 36px;
+  }
+
+  .valsason-posters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .valsason-stats {
+    gap: 10px;
+    margin-bottom: 80px;
+  }
+
+  .valsason-stats strong {
+    font-size: 30px;
+  }
+
+  .valsason-stats span {
+    font-size: 9px;
+  }
+
+  .valsason-episodes {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================
+   ABOUT — MINIMAL GRID
+========================================= */
+
+.about {
+  height: 100svh;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding:
+    var(--header-height)
+    var(--margin)
+    clamp(30px, 7vh, 80px);
+
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  grid-template-rows: auto auto;
+
+  column-gap: 60px;
+  row-gap: clamp(65px, 11vh, 125px);
+
+  align-items: start;
+  width: 100%;
+}
+
+/* TITLE — SAME TYPOGRAPHY AS WORKS */
+
+.about h1.about-headline,
+.works-row-title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.045em;
+}
+
+.about h1.about-headline {
+  grid-column: 1;
+  grid-row: 1;
+
+  margin: 0;
+  padding: 0;
+}
+
+.about-headline span {
+  display: block;
+}
+
+/* RIGHT — TOP ALIGNED WITH TITLE */
+
+.about-fields {
+  grid-column: 2;
+  grid-row: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  justify-self: start;
+  align-self: start;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -.015em;
+}
+
+/* BOTTOM LEFT */
+
+.about-bio {
+  grid-column: 1;
+  grid-row: 2;
+
+  margin: 0;
+  align-self: end;
+
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: -.015em;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+/* BOTTOM RIGHT */
+
+.about-links {
+  grid-column: 2;
+  grid-row: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  justify-self: start;
+  align-self: end;
+}
+
+.about-links a {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -.015em;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ONE SCREEN */
+
+body:has(#about:not([hidden])) {
+  height: 100svh;
+  overflow: hidden;
+}
+
+body:has(#about:not([hidden])) .footer {
+  display: none;
+}
+
+/* TABLET / MOBILE */
+
+@media (max-width: 800px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: clamp(22px, 4vh, 40px);
+  }
+
+  .about h1.about-headline,
+  .about-fields,
+  .about-bio,
+  .about-links {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+  }
+
+  .about-fields {
+    gap: 9px;
+  }
+
+  .about-links {
+    justify-content: flex-start;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 520px) {
+  .about h1.about-headline {
+    font-size: clamp(22px, 6vw, 30px);
+  }
+
+  .about-fields,
+  .about-bio,
+  .about-links a {
+    font-size: 11px;
+  }
+
+  .about {
+    padding-bottom: 25px;
+  }
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-top: auto;
+  padding: 12px var(--margin) 20px;
+
+  color: #888;
+  font-size: 9px;
+}
+
+body.white-theme .footer {
+  background: #fff;
+}
+
+
+/* =========================================
+   11. RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 800px) {
+
+  body,
+  a,
+  button {
+    cursor: auto;
+  }
+
+  .character-cursor {
+    display: none;
+  }
+
+  /* HEADER */
+
+  .header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .header-name {
+    display: none;
+  }
+
+  .header nav {
+    gap: 15px;
+  }
+
+  /* HOME */
+
+  .conveyor-viewport {
+    height: 300px;
+    margin-bottom: 48px;
+  }
+
+  .work-image-wrap,
+  .work-image {
+    height: 210px;
+  }
+
+  /* WORKS */
+
+  .works-page {
+    padding-top: 90px;
+  }
+
+  .works-row {
+    grid-template-columns: minmax(0, 1fr) 100px;
+    gap: 10px;
+  }
+
+  .works-row-category {
+    display: none;
+  }
+
+  .works-row-title {
+    font-size: 23px;
+  }
+
+  .works-row-info {
+    font-size: 15px;
+  }
+
+  .works-hover-preview {
+    display: none;
+  }
+
+  /* ARCHIVE HERO */
+
+  .project-hero {
+    height: 80svh;
+  }
+
+  .archive-navigation {
+    top: calc(var(--header-height) + 18px);
+  }
+
+  /* MAIN PROJECT — STACK */
+
+  .archive-heading {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 75px 0;
+  }
+
+  .archive-title-group h1 {
+    font-size: clamp(46px, 11vw, 90px);
+  }
+
+  .gallery-item.narrow {
+    grid-column: span 6;
+  }
+
+  /* SHARED SECTION INTRO — STACK */
+
+  .logbook-section-copy,
+  .ryu-feature-intro {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .logbook-section-copy h2,
+  .ryu-feature-intro h2 {
+    font-size: 36px;
+  }
+
+  /* LOGBOOK */
+
+  .logbook-section {
+    margin-bottom: 80px;
+  }
+
+  .logbook-section-copy {
+    padding: 28px 0 35px;
+  }
+
+  .logbook-maps-grid {
+    gap: 20px;
+  }
+
+  .logbook-map-media {
+    height: 270px;
+  }
+
+  .logbook-symbol-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .logbook-symbol-item img {
+    height: 150px;
+  }
+
+  .logbook-final-map {
+    width: 100%;
+    margin: 0 auto !important;
+  }
+
+  .logbook-tracklist-grid {
+    width: 100%;
+    gap: 18px;
+  }
+
+  /* RYU */
+
+  .ryu-feature-intro {
+    margin: 30px 0 40px;
+  }
+
+  .ryu-feature-poster img {
+    max-height: 75vh;
+  }
+
+  .ryu-poster-archive {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 12px;
+  }
+
+  .ryu-archive-poster img {
+    height: 300px;
+  }
+
+  /* ABOUT */
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE — MOBILE
+========================================= */
+
+@media (max-width: 520px) {
+
+  /* HEADER */
+
+  .header {
+    padding: 0 20px;
+  }
+
+  .header nav {
+    gap: 14px;
+    font-size: 11px;
+  }
+
+  /* HOME */
+
+  .conveyor-viewport {
+    height: 240px;
+    margin-bottom: 35px;
+  }
+
+  .work-image-wrap,
+  .work-image {
+    height: 170px;
+  }
+
+  /* WORKS */
+
+  .works-row-title {
+    font-size: 21px;
+  }
+
+  .works-row-info {
+    font-size: 13px;
+  }
+
+  /* PREVIEW */
+
+  .preview-modal {
+    padding: 15px;
+  }
+
+  .modal-window {
+    padding: 18px;
+  }
+
+  .modal-gallery {
+    height: 260px;
+  }
+
+  /* ARCHIVE */
+
+  .archive-navigation {
+    font-size: 9px;
+    gap: 9px;
+  }
+
+  .archive-title-group h1 {
+    font-size: clamp(42px, 13vw, 70px);
+  }
+
+  .archive-description > p {
+    font-size: 14px;
+  }
+
+  .archive-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item,
+  .gallery-item.wide,
+  .gallery-item.narrow {
+    grid-column: 1 / -1;
+  }
+
+  /* LOGBOOK */
+
+  .logbook-section-head,
+  .logbook-subsection-heading,
+  .logbook-maps-grid figcaption {
+    gap: 12px;
+    font-size: 10px;
+  }
+
+  .logbook-maps-grid figcaption strong,
+  .logbook-maps-grid figcaption span,
+  .logbook-symbol-item figcaption {
+    font-size: 10px;
+  }
+
+  .logbook-subsection-heading,
+  .logbook-final-heading {
+    margin-top: 48px;
+  }
+
+  .logbook-maps-grid,
+  .logbook-tracklist-grid,
+  .logbook-photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .logbook-map-media {
+    height: 280px;
+  }
+
+  .logbook-photo-grid img {
+    height: auto;
+  }
+
+  /* RYU */
+
+  .ryu-posters,
+  .ryu-contents {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .ryu-section {
+    margin-bottom: 75px;
+  }
+
+  .ryu-archive-poster img {
+    height: 260px;
+  }
+
+  .ryu-reminisce-caption {
+    padding: 0 12px;
+  }
+
+  /* FOOTER */
+
+  .footer span:last-child {
+    display: none;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cursor-stamp {
+    display: none;
+  }
+
+  .work-image,
+  .cursor-art {
+    transition: none;
+  }
+}
+
+
+/* =========================================
+   RYU — MERCHANDISE FINAL
+   One source for hoodie imagery and captions.
+========================================= */
+
+.ryu-merch-main {
+  width: 100%;
+  margin-bottom: 26px;
+}
+
+.ryu-merch-main .ryu-image,
+.ryu-merch-main img {
+  width: 100%;
+}
+
+.ryu-merch-main img {
+  display: block;
+  max-height: 620px;
+  object-fit: cover;
+}
+
+.ryu-merch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 20px;
+}
+
+.ryu-merch-item {
+  min-width: 0;
+  margin: 0;
+}
+
+.ryu-merch-item img {
+  display: block;
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  background: #f5f5f5;
+}
+
+.ryu-merch-item:first-child img {
+  object-fit: contain;
+  background: #f7f7f7;
+}
+
+.ryu-merch-real img {
+  object-position: center 55%;
+}
+
+.ryu-merch-item figcaption {
+  margin-top: 12px;
+  text-align: left;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #888;
+}
+
+@media (max-width: 800px) {
+  .ryu-merch-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .ryu-merch-item img { height: auto; }
+  .ryu-merch-main img { max-height: none; }
+}
+
+/* =========================================
+   VALSASON — VIDEO / REELS / SUBTITLE
+========================================= */
+
+.valsason-stats strong {
+  font-size: clamp(30px, 4.5vw, 64px);
+}
+
+.valsason-feature-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-top: 38px;
+  overflow: hidden;
+  background: #111;
+}
+
+.valsason-feature-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.valsason-video-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+.valsason-video-placeholder span {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.valsason-video-placeholder small {
+  font-size: 10px;
+  color: #888;
+}
+
+/* Supports both legacy Instagram embeds and thumbnail cards. */
+.valsason-reels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.valsason-reel-item,
+.valsason-reel-card { min-width: 0; }
+
+.valsason-reel-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.valsason-reel-media,
+.valsason-reel-thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  margin: 0;
+  overflow: hidden;
+  background: #111;
+}
+
+.valsason-reel-media iframe,
+.valsason-reel-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+
+.valsason-reel-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #888;
+}
+
+.valsason-reel-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 12px;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #111;
+}
+
+.valsason-reel-caption strong {
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.valsason-reel-link {
+  margin-top: 6px;
+  font-size: 10px;
+  color: #888;
+}
+
+.valsason-reel-card:hover .valsason-reel-thumb img {
+  transform: scale(1.02);
+  transition: transform .25s ease;
+}
+
+.archive-subtitle {
+  margin: 12px 0 0 8px;
+  padding: 0;
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -.055em;
+  color: #111;
+}
+
+@media (max-width: 800px) {
+  .valsason-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+  .valsason-reels { gap: 12px; }
+  .archive-subtitle { font-size: 36px; margin-left: 4px; }
+}
+
+@media (max-width: 520px) {
+  .valsason-reels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 12px;
+  }
+  .valsason-reel-caption { flex-direction: column; gap: 4px; }
+}
+
+
+/* =========================================
+   OFFTHECUFF — CONSOLIDATED
+   01 PERFORMANCE / 02 CAMPAIGN / 03 MERCH / 04 ARCHIVE
+========================================= */
+
+/* Layout must span all 12 columns of .archive-gallery. */
+.archive-gallery > .otc-layout {
+  grid-column: 1 / -1;
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+.otc-section {
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 120px;
+}
+
+/* Tight spacing between product lineup and 4-season archive. */
+.otc-section.otc-merch-section,
+.otc-section:has(.otc-product-lineup) {
+  margin-bottom: 45px;
+}
+
+/* PERFORMANCE / directly after archive title and metadata */
+.otc-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  padding: 18px 0;
+  margin-bottom: 120px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.otc-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.otc-stats strong {
+  font-size: clamp(34px, 5vw, 72px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.06em;
+}
+
+.otc-stats span {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #888;
+}
+
+/* CHAPTER LABEL / same typographic hierarchy as other projects */
+.otc-section-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  margin-bottom: 36px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.otc-section-label span:last-child { text-align: right; }
+
+/* LEFT TITLE / RIGHT DESCRIPTION — CENTERED vertically */
+.otc-section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 48%) minmax(0, 46%);
+  column-gap: 6%;
+  align-items: center;
+  width: 100%;
+  margin: 42px 0 55px;
+}
+
+.otc-section-heading h2 {
+  min-width: 0;
+  margin: 0;
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -.055em;
+}
+
+.otc-section-heading p {
+  width: 100%;
+  max-width: 540px;
+  min-width: 0;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -.015em;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+.otc-image { min-width: 0; margin: 0; }
+.otc-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 01 — FEATURED VERTICAL IMAGE + 7 HORIZONTAL SCROLL IMAGES */
+.otc-campaign-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 38%) minmax(0, 1fr);
+  gap: 10px;
+  width: 100%;
+  height: 560px;
+  min-width: 0;
+}
+
+.otc-campaign-feature {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.otc-campaign-feature img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.otc-lookbook {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: #aaa transparent;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.otc-lookbook.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.otc-lookbook-item {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+.otc-lookbook-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.otc-lookbook-footer,
+.otc-campaign-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-top: 16px;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #888;
+}
+
+/* 02 — WOMENSWEAR / PRODUCT LINEUP */
+.otc-womenswear-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+
+.otc-womenswear-item {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.otc-womenswear-item img {
+  display: block;
+  width: 100%;
+  height: clamp(280px, 34vw, 540px);
+  object-fit: cover;
+  object-position: center;
+}
+
+.otc-product-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin: 75px 0 20px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.otc-product-heading span:last-child { text-align: right; }
+
+.otc-product-lineup {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+}
+
+.otc-product-lineup .otc-image {
+  width: 100%;
+  margin: 0;
+  background: transparent;
+}
+
+.otc-product-lineup img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: transparent;
+}
+
+/* 03 — 4 SEASON ARCHIVE / natural size, no clipping */
+.otc-season-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 16fr)
+    minmax(0, 16fr)
+    minmax(0, 16fr)
+    minmax(0, 15fr);
+  gap: 10px;
+  align-items: start;
+  width: 100%;
+}
+
+.otc-season-card {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+.otc-season-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  overflow: visible;
+}
+
+.otc-season-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
+}
+
+.otc-season-caption { margin-top: 15px; }
+
+.otc-season-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.otc-season-info span {
+  font-size: 11px;
+  font-weight: 400;
+  color: #888;
+}
+
+.otc-season-info strong {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #111;
+}
+
+.otc-season-caption p {
+  margin: 10px 0 0;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #888;
+  word-break: keep-all;
+}
+
+/* OFFICIAL LINKS — displayed only under top archive intro. */
+.archive-brand-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.archive-brand-links a { color: #111; text-decoration: none; }
+.archive-brand-links a:hover { text-decoration: underline; }
+
+/* Safety: hides the obsolete bottom channels block, even if old JS still renders it.
+   Once deleted from renderOffthecuffGallery(), this fallback can be removed. */
+.otc-official-links { display: none !important; }
+
+/* =========================================
+   OFFTHECUFF — RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+  .otc-section { margin-bottom: 80px; }
+  .otc-section.otc-merch-section,
+  .otc-section:has(.otc-product-lineup) { margin-bottom: 40px; }
+
+  .otc-stats { margin-bottom: 90px; gap: 15px; }
+  .otc-stats strong { font-size: clamp(26px, 4vw, 44px); }
+
+  .otc-section-heading {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin: 30px 0 40px;
+  }
+  .otc-section-heading h2 { font-size: 36px; }
+
+  .otc-campaign-showcase {
+    height: 420px;
+    grid-template-columns: minmax(0, 40%) minmax(0, 1fr);
+  }
+
+  .otc-womenswear-item img { height: 350px; }
+  .otc-product-heading { margin-top: 55px; }
+
+  .otc-season-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 10px;
+  }
+  .otc-season-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 4 / 5;
+  }
+  .otc-season-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 520px) {
+  .otc-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 12px;
+  }
+  .otc-stats strong { font-size: 30px; }
+  .otc-stats span { font-size: 9px; }
+
+  .otc-section-heading h2 { font-size: 32px; }
+  .otc-section-label { font-size: 10px; }
+
+  .otc-campaign-showcase {
+    height: 300px;
+    grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+    gap: 8px;
+  }
+  .otc-lookbook { gap: 8px; }
+
+  .otc-womenswear-grid { grid-template-columns: 1fr; }
+  .otc-womenswear-item img {
+    height: auto;
+    max-height: 560px;
+    object-fit: contain;
+  }
+  .otc-season-info strong { font-size: 11px; }
+  .otc-season-caption p { font-size: 9px; }
+
+  .archive-brand-links {
+    justify-content: flex-start;
+    gap: 20px;
+  }
+}
+
+
+/* OFFTHECUFF — INTRO CHANNEL LINKS */
+
+.archive-brand-links .otc-official-link-list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
+}
+
+.archive-brand-links > span {
+  color: #888;
+  margin-right: auto;
+}
+
+@media (max-width: 520px) {
+  .archive-brand-links {
+    flex-wrap: wrap;
+  }
+
+  .archive-brand-links .otc-official-link-list {
+    gap: 18px;
+  }
+}
+
+/* =====================================
+   OFFTHECUFF — CAMPAIGN KEY VISUAL
+===================================== */
+
+.otc-campaign-keyvisual {
+  width: 100%;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.otc-campaign-keyvisual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 기존 사진 룩북은 유지 */
+
+.otc-campaign-showcase {
+  margin-top: 0;
+}
+
+/* =========================================
+   O KELVIN — TYPOGRAPHY EXPLORATION
+========================================= */
+
+.archive-gallery > .okelvin-layout {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
+}
+
+.okelvin-section {
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+/* SECTION LABEL */
+
+.okelvin-section-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  margin-bottom: 36px;
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* SECTION INTRO */
+
+.okelvin-intro {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 48%) minmax(0, 46%);
+
+  column-gap: 6%;
+  align-items: center;
+
+  width: 100%;
+  margin: 42px 0 55px;
+}
+
+.okelvin-intro h2 {
+  margin: 0;
+
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -.055em;
+}
+
+.okelvin-intro p {
+  width: 100%;
+  max-width: 540px;
+  margin: 0;
+
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: -.015em;
+
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+
+/* =====================================
+   O KELVIN — SMOOTH TRANSITION
+===================================== */
+
+/* 타이포그래피 전체 클릭 가능 */
+
+.okelvin-pair {
+  cursor: pointer;
+}
+
+/* 이미지 기본 상태 */
+
+.okelvin-panel img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  transform: scale(var(--ok-zoom, 1));
+
+  opacity: 1;
+  filter: blur(0);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s cubic-bezier(.22, 1, .36, 1),
+    filter 0.35s ease;
+}
+
+/* 전환 중 */
+
+.okelvin-pair.is-switching .okelvin-panel img {
+  opacity: 0;
+  filter: blur(3px);
+
+  transform:
+    translateY(10px)
+    scale(var(--ok-zoom, 1));
+}
+
+/* Placeholder도 함께 전환 */
+
+.okelvin-placeholder {
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.okelvin-pair.is-switching .okelvin-placeholder {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* 키보드 포커스 표시 */
+
+.okelvin-pair:focus-visible {
+  outline: 1px solid #888;
+  outline-offset: 5px;
+}
+
+/* 접근성 — 움직임 최소화 */
+
+@media (prefers-reduced-motion: reduce) {
+  .okelvin-panel img,
+  .okelvin-placeholder {
+    transition: none;
+  }
+}
+
+
+/* IMAGE PLACEHOLDER */
+
+.okelvin-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+  height: 100%;
+
+  color: #aaa;
+}
+
+.okelvin-placeholder span {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.okelvin-placeholder small {
+  font-size: 10px;
+  color: #777;
+}
+
+/* LABELS */
+
+.okelvin-pair-labels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+
+  width: min(100%, 1250px);
+  margin: 14px auto 0;
+
+  font-size: 10px;
+  line-height: 1.5;
+  color: #888;
+}
+
+/* NAVIGATION */
+
+.okelvin-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: min(100%, 1250px);
+  margin: 35px auto 0;
+  padding-top: 16px;
+
+  border-top: 1px solid #ddd;
+}
+
+#okelvinCounter {
+  font-size: 12px;
+  font-weight: 600;
+  color: #111;
+}
+
+.okelvin-controls {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.okelvin-controls button {
+  font-size: 25px;
+  line-height: 1;
+  color: #111;
+}
+
+.okelvin-controls button:disabled {
+  opacity: .25;
+  cursor: default;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+  .okelvin-intro {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin: 30px 0 40px;
+  }
+
+  .okelvin-intro h2 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 520px) {
+
+  .okelvin-pair {
+    gap: 6px;
+  }
+
+  .okelvin-pair-labels {
+    gap: 6px;
+    font-size: 9px;
+  }
+
+  .okelvin-placeholder span {
+    font-size: 9px;
+  }
+
+  .okelvin-placeholder small {
+    font-size: 8px;
+  }
+}
+
+
+/* =====================================
+   O KELVIN — IMAGE SIZING
+===================================== */
+
+/* 공통 이미지: 확대 제거 */
+.okelvin-panel img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  transform: none;
+
+  opacity: 1;
+  filter: blur(0);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s ease,
+    filter 0.35s ease;
+}
+
+
+/* 부드러운 전환 유지 */
+.okelvin-pair.is-switching .okelvin-panel img {
+  opacity: 0;
+  filter: blur(3px);
+  transform: translateY(8px);
+}
+
+/* O KELVIN — IMAGE SIZE RESET */
+
+.okelvin-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  width: min(100%, 1250px);
+  margin: 0 auto;
+}
+
+
+/* O KELVIN — TYPOGRAPHY IMAGE FIT */
+
+.okelvin-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+
+  overflow: hidden;
+  background: transparent;
+}
+
+/* 왼쪽·오른쪽 모두 원본 비율 유지 */
+.okelvin-panel img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  transform: none;
+  opacity: 1;
+
+  transition:
+    opacity 0.35s ease,
+    filter 0.35s ease,
+    transform 0.35s ease;
+}
+
+/* 클릭 전환 애니메이션 */
+.okelvin-pair.is-switching .okelvin-panel img {
+  opacity: 0;
+  filter: blur(2px);
+  transform: translateY(6px);
+}
+
+
+/* =====================================
+   O KELVIN — CLICK GUIDE
+===================================== */
+
+.okelvin-click-hint {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  width: min(100%, 1250px);
+  margin: 0 auto 12px;
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: .02em;
+  color: #111;
+}
+
+.okelvin-pair {
+  cursor: pointer;
+}
+
+.okelvin-pair:focus-visible {
+  outline: 1px solid #888;
+  outline-offset: 5px;
+}
+
+/* =====================================
+   O KELVIN — ALBUM APPLICATION
+===================================== */
+
+.okelvin-application {
+  width: 100%;
+  margin-bottom: 90px;
+}
+
+
+/* =====================================
+   O KELVIN — ALBUM APPLICATION
+   TIGHT 3-COLUMN LAYOUT
+===================================== */
+
+.okelvin-application-grid {
+  display: grid;
+
+  /* 정사각형 커버 : 세로형 페이지 : 세로형 페이지 */
+  grid-template-columns:
+    minmax(0, 5fr)
+    minmax(0, 4fr)
+    minmax(0, 4fr);
+
+  gap: 10px;
+  width: 100%;
+  align-items: start;
+}
+
+.okelvin-application-item {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* 이미지 프레임의 고정 높이 제거 */
+
+.okelvin-application-media {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+}
+
+/* 원본 비율 유지하면서 열 너비를 꽉 채움 */
+
+.okelvin-application-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: none;
+
+  object-fit: contain;
+}
+
+/* 캡션도 이미지 시작점과 정확하게 정렬 */
+
+.okelvin-application-item figcaption {
+  display: block;
+  width: 100%;
+  margin: 12px 0 0;
+  padding: 0;
+
+  text-align: left;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #888;
+}
+
+/* TABLET */
+
+@media (max-width: 800px) {
+  .okelvin-application-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 10px;
+  }
+
+  .okelvin-application-item:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 520px) {
+  .okelvin-application-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .okelvin-application-item:first-child {
+    grid-column: auto;
+  }
+}
+
+
+/* =====================================
+   HOME — TINKERBELL CURSOR SPARKLES
+===================================== */
+
+.fairy-spark {
+  position: fixed;
+  z-index: 9998;
+  pointer-events: none;
+
+  border-radius: 50%;
+  background: #fff;
+
+  box-shadow:
+    0 0 3px rgba(255, 255, 255, .9),
+    0 0 6px rgba(255, 255, 255, .3);
+
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* 가끔 나타나는 작은 별 모양 */
+.fairy-spark--star {
+  border-radius: 0;
+
+  clip-path: polygon(
+    50% 0%,
+    61% 39%,
+    100% 50%,
+    61% 61%,
+    50% 100%,
+    39% 61%,
+    0% 50%,
+    39% 39%
+  );
+}
+/* =========================================
+   OMPHI — FINAL / CONSOLIDATED
+   Brand Film / Physical Interaction /
+   Visual Language / Web / Exhibition
+========================================= */
+
+.archive-gallery > .omphi-v2-layout {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
+}
+
+.omphi-v2-section {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 125px;
+}
+
+.omphi-v2-label,
+.omphi-v2-actionbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.omphi-v2-label { margin-bottom: 36px; }
+.omphi-v2-label span:last-child { text-align: right; }
+
+.omphi-v2-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 48%) minmax(0, 46%);
+  column-gap: 6%;
+  align-items: center;
+  margin: 35px 0 55px;
+}
+
+.omphi-v2-intro h2,
+.omphi-v2-hub-copy h2 {
+  margin: 0;
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -.055em;
+}
+
+.omphi-v2-intro p,
+.omphi-v2-hub-copy p {
+  width: 100%;
+  max-width: 540px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: -.015em;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+/* 00 — BRAND FILM */
+.omphi-v2-film {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #111;
+  overflow: hidden;
+}
+
+.omphi-v2-film iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.omphi-v2-film-intro { margin: 60px 0 0; }
+
+/* COMMON PET / HUB / WEB ACTIONBAR + WIDGETS */
+.omphi-v2-actionbar {
+  position: relative;
+  z-index: 5;
+  min-height: 50px;
+  margin: 30px 0 22px;
+}
+
+.omphi-v2-actionbar > span { color: #888; }
+
+.omphi-v2-video-widget,
+.omphi-v2-link-widget {
+  position: relative;
+  flex: 0 0 275px;
+  width: 275px;
+  max-width: 100%;
+  color: #111;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: none;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.omphi-v2-video-widget summary,
+.omphi-v2-link-widget {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 50px;
+  padding: 12px 14px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.omphi-v2-video-widget summary::-webkit-details-marker { display: none; }
+.omphi-v2-video-widget summary::marker { content: ""; }
+.omphi-v2-link-widget { text-decoration: none; }
+
+.omphi-v2-widget-icon {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  flex: 0 0 25px;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  font-size: 10px;
+}
+
+.omphi-v2-widget-arrow { margin-left: auto; }
+
+/* Opening the widget overlays the model instead of pushing the layout down. */
+.omphi-v2-widget-player {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  right: -1px;
+  width: min(340px, 82vw);
+  aspect-ratio: 16 / 9;
+  background: #111;
+  border: 1px solid #ddd;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .12);
+}
+
+.omphi-v2-widget-player iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* 01 — PHYSICAL INTERACTION */
+.omphi-v2-pet-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.omphi-v2-mini-label {
+  display: block;
+  margin: 0 0 22px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #888;
+}
+
+.omphi-v2-pet-copy { min-width: 0; }
+.omphi-v2-pet-copy h3 {
+  margin: 0 0 12px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -.05em;
+}
+
+.omphi-v2-pet-copy > p {
+  margin: 0 0 34px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #888;
+}
+
+.omphi-v2-action {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 13px 0;
+  border-top: 1px solid #ddd;
+}
+
+.omphi-v2-action strong { font-size: 11px; font-weight: 600; }
+.omphi-v2-action span { font-size: 11px; color: #777; line-height: 1.6; }
+
+.omphi-v2-model-stage {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  background: #f5efe2;
+}
+
+.omphi-v2-pet-model { height: 540px; }
+.omphi-v2-hub-model { height: 530px; }
+
+.omphi-v2-model-stage model-viewer {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  --poster-color: transparent;
+}
+
+/* Darkens an overexposed PET without altering the Hub's appearance. */
+.omphi-v2-pet-model model-viewer {
+  filter: saturate(1.06) brightness(.93) contrast(1.03);
+}
+.omphi-v2-hub-model model-viewer {
+  filter: saturate(1.05) brightness(.98) contrast(1.02);
+}
+
+.omphi-v2-rotate {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  color: #888;
+  font-size: 10px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+/* No artificial ground shadow. */
+.omphi-v2-model-stage::after { content: none; }
+
+.omphi-v2-tech {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+  padding: 16px 0;
+  border-top: 1px solid #ddd;
+  font-size: 10px;
+  font-weight: 600;
+  color: #888;
+}
+
+.omphi-v2-hub-unit { margin-top: 108px; }
+.omphi-v2-hub-unit .omphi-v2-actionbar { margin-top: 0; }
+.omphi-v2-hub-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 42%) minmax(0, 52%);
+  column-gap: 6%;
+  align-items: start;
+  margin: 0;
+}
+
+.omphi-v2-hub-copy { min-width: 0; padding-top: 0; }
+.omphi-v2-hub-copy h2 { max-width: 450px; margin-bottom: 24px; }
+.omphi-v2-hub-copy p { max-width: 420px; }
+
+/* 02 — VISUAL LANGUAGE: EIGHT EXPRESSIONS + BACKGROUND FLOATERS */
+.omphi-v2-expression-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% + var(--margin) + var(--margin));
+  height: clamp(460px, 62vh, 680px);
+  margin-left: calc(-1 * var(--margin));
+  overflow: visible;
+  isolation: isolate;
+  background: transparent;
+}
+
+.omphi-v2-motifs {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.omphi-v2-floater {
+  position: absolute;
+  height: auto;
+  opacity: .24;
+  pointer-events: none;
+  user-select: none;
+  animation: omphiV2Float var(--duration, 9s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes omphiV2Float {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-4deg); }
+  50% {
+    transform: translate(-50%, calc(-50% - var(--distance, 20px))) rotate(4deg);
+  }
+}
+
+.omphi-v2-expression-row {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: clamp(6px, 1vw, 18px);
+  align-items: center;
+  width: min(94%, 1500px);
+}
+
+.omphi-v2-expression {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  transition: transform .28s ease;
+}
+
+.omphi-v2-expression img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  transition: opacity .28s ease;
+}
+
+.omphi-v2-face-blue { opacity: 1; }
+.omphi-v2-face-pink { opacity: 0; }
+
+.omphi-v2-expression:hover,
+.omphi-v2-expression:focus-visible,
+.omphi-v2-expression.is-active {
+  transform: translateY(-10px) scale(1.06);
+}
+
+.omphi-v2-expression:hover .omphi-v2-face-blue,
+.omphi-v2-expression:focus-visible .omphi-v2-face-blue,
+.omphi-v2-expression.is-active .omphi-v2-face-blue { opacity: 0; }
+
+.omphi-v2-expression:hover .omphi-v2-face-pink,
+.omphi-v2-expression:focus-visible .omphi-v2-face-pink,
+.omphi-v2-expression.is-active .omphi-v2-face-pink { opacity: 1; }
+
+.omphi-v2-expression-hint {
+  position: absolute;
+  right: 28px;
+  bottom: 22px;
+  z-index: 4;
+  color: #999;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* 03 — WEB MOCKUP: CENTERED / NO CROP / NO ENLARGEMENT */
+/* WEB MOCKUP — SAME ALIGNMENT AS SECTION TEXT */
+
+.omphi-v2-web {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+.omphi-v2-web img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  transform: none;
+}
+
+/* 04 — EXHIBITION: FULL BLEED / GAP 5PX */
+.omphi-v2-exhibition {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px;
+  width: calc(100% + var(--margin) + var(--margin));
+  margin-left: calc(-1 * var(--margin));
+}
+
+.omphi-v2-exhibition figure {
+  margin: 0;
+  min-width: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.omphi-v2-exhibition img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+  .omphi-v2-section { margin-bottom: 80px; }
+  .omphi-v2-intro {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin: 30px 0 40px;
+  }
+  .omphi-v2-intro h2,
+  .omphi-v2-hub-copy h2 { font-size: 36px; }
+  .omphi-v2-pet-grid { grid-template-columns: 1fr; gap: 26px; }
+  .omphi-v2-pet-model { order: -1; height: 450px; }
+  .omphi-v2-tech { flex-direction: column; gap: 7px; }
+  .omphi-v2-hub-unit { margin-top: 85px; }
+  .omphi-v2-hub-grid { grid-template-columns: 1fr; gap: 25px; }
+  .omphi-v2-hub-model { height: 450px; }
+  .omphi-v2-expression-stage { height: 480px; }
+}
+
+@media (max-width: 520px) {
+  .omphi-v2-label { font-size: 10px; }
+  .omphi-v2-actionbar { align-items: center; }
+  .omphi-v2-actionbar > span { display: none; }
+  .omphi-v2-video-widget,
+  .omphi-v2-link-widget {
+    width: min(100%, 275px);
+    flex: 0 1 275px;
+    margin-left: auto;
+  }
+  .omphi-v2-expression-stage { height: 410px; }
+  .omphi-v2-expression-row {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .omphi-v2-expression-hint { right: 15px; bottom: 15px; }
+  .omphi-v2-exhibition { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .omphi-v2-floater { animation: none; }
+  .omphi-v2-expression,
+  .omphi-v2-expression img { transition: none; }
+}
+/* OMPHI WEB — ALIGN WIDGET WITH MOCKUP */
+
+.omphi-v2-actionbar--web,
+.omphi-v2-web {
+  width: min(100%, 1240px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.omphi-v2-actionbar--web {
+  margin-top: 30px;
+  margin-bottom: 22px;
+}
+
+/* WEB MOCKUP — SAME ALIGNMENT AS SECTION TEXT */
+
+.omphi-v2-web {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+.omphi-v2-web img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  transform: none;
+}
+/* =========================================
+   OMPHI — PET GRID ALIGN FIX
+========================================= */
+
+/* 1) 가로선 제거 */
+.omphi-v2-action {
+  border-top: 0 !important;
+  padding: 12px 0;
+}
+
+.omphi-v2-tech {
+  border-top: 0 !important;
+  padding-top: 22px;
+}
+
+/* 혹시 다른 선도 보이면 같이 제거 */
+.omphi-v2-pet-copy hr,
+.omphi-v2-hub-copy hr {
+  display: none;
+}
+
+/* 2) PET 좌우 텍스트를 GLB 중심으로 퍼지게 정렬 */
+
+/* 왼쪽 텍스트 블록 */
+.omphi-v2-pet-grid > .omphi-v2-pet-copy:first-child {
+  text-align: right;
+}
+
+/* 왼쪽 작은 라벨 / 제목 / 설명 / 액션 전부 오른쪽 정렬 */
+.omphi-v2-pet-grid > .omphi-v2-pet-copy:first-child .omphi-v2-mini-label,
+.omphi-v2-pet-grid > .omphi-v2-pet-copy:first-child h3,
+.omphi-v2-pet-grid > .omphi-v2-pet-copy:first-child > p,
+.omphi-v2-pet-grid > .omphi-v2-pet-copy:first-child .omphi-v2-action {
+  text-align: right;
+}
+
+/* 왼쪽 액션 텍스트를 오른쪽 끝 기준으로 정렬 */
+.omphi-v2-pet-grid > .omphi-v2-pet-copy:first-child .omphi-v2-action {
+  align-items: flex-end;
+}
+
+/* 오른쪽 텍스트 블록은 기본 왼쪽 정렬 유지 */
+.omphi-v2-pet-grid > .omphi-v2-pet-copy:last-child {
+  text-align: left;
+}
+
+.omphi-v2-pet-grid > .omphi-v2-pet-copy:last-child .omphi-v2-action {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* 3) GLB 중심 기준으로 좌우 칼럼 간격 조금 정리 */
+.omphi-v2-pet-grid {
+  column-gap: 36px;
+}
+
+.omphi-v2-pet-grid > .omphi-v2-pet-copy:first-child {
+  padding-right: 8px;
+}
+
+.omphi-v2-pet-grid > .omphi-v2-pet-copy:last-child {
+  padding-left: 8px;
+}
+
+/* 4) 하단 프로토타이핑 문구도 양끝으로 깔끔하게 */
+.omphi-v2-tech span:first-child {
+  text-align: left;
+}
+
+.omphi-v2-tech span:last-child {
+  text-align: right;
+  margin-left: auto;
+}
+
+/* 모바일에서는 다시 왼쪽 정렬로 복귀 */
+@media (max-width: 800px) {
+  .omphi-v2-pet-grid > .omphi-v2-pet-copy:first-child,
+  .omphi-v2-pet-grid > .omphi-v2-pet-copy:last-child,
+  .omphi-v2-pet-grid > .omphi-v2-pet-copy:first-child .omphi-v2-mini-label,
+  .omphi-v2-pet-grid > .omphi-v2-pet-copy:first-child h3,
+  .omphi-v2-pet-grid > .omphi-v2-pet-copy:first-child > p,
+  .omphi-v2-pet-grid > .omphi-v2-pet-copy:first-child .omphi-v2-action,
+  .omphi-v2-pet-grid > .omphi-v2-pet-copy:last-child .omphi-v2-action {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .omphi-v2-pet-grid > .omphi-v2-pet-copy:first-child,
+  .omphi-v2-pet-grid > .omphi-v2-pet-copy:last-child {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* UNIFIED WIDGET ALIGNMENT */
+
+.omphi-v2-actionbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100%;
+  min-height: 50px;
+
+  margin: 30px 0 22px;
+  padding: 0;
+}
+
+.omphi-v2-actionbar > .omphi-v2-video-widget,
+.omphi-v2-actionbar > .omphi-v2-link-widget {
+  margin: 0;
+  width: 275px;
+  flex: 0 0 275px;
+  max-width: 100%;
+}
+
+/* 동일한 좌측 기준 */
+
+.omphi-v2-intro,
+.omphi-v2-actionbar,
+.omphi-v2-web {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* HUB — VIDEO WIDGET BELOW DESCRIPTION */
+
+.omphi-v2-hub-copy .omphi-v2-actionbar {
+  justify-content: flex-start;
+  width: 100%;
+  margin: 32px 0 0;
+}
+
+.omphi-v2-hub-copy .omphi-v2-video-widget {
+  margin: 0;
+  width: 275px;
+  flex: 0 0 275px;
+  max-width: 100%;
+}
+
+.omphi-v2-hub-grid {
+  align-items: start;
+}
+
+.works-row-title {
+  text-transform: uppercase;
+}
+/* OMPHI — SYMBOL HUB */
+
+.omphi-v2-hub-unit {
+  width: 100%;
+  margin-top: 120px;
+}
+
+.omphi-v2-hub-unit .omphi-v2-intro {
+  margin: 0 0 40px;
+}
+
+.omphi-v2-hub-unit .omphi-v2-actionbar {
+  justify-content: flex-start;
+  margin: 0 0 35px;
+}
+
+.omphi-v2-hub-model {
+  width: min(100%, 720px);
+  height: 580px;
+  margin: 0 auto;
+  background: transparent;
+}
+
+@media (max-width: 800px) {
+  .omphi-v2-hub-unit {
+    margin-top: 85px;
+  }
+
+  .omphi-v2-hub-model {
+    width: 100%;
+    height: 450px;
+  }
+}
+
+@media (max-width: 520px) {
+  .omphi-v2-hub-model {
+    height: 340px;
+  }
+}
+/* GLB — TRANSPARENT BACKGROUND */
+
+.omphi-v2-model-stage,
+.omphi-v2-pet-model,
+.omphi-v2-hub-model,
+.omphi-v2-model-stage model-viewer {
+  background: transparent !important;
+  --poster-color: transparent;
+}
+
+/* PET — MORE DEFINED SILHOUETTE */
+
+.omphi-v2-pet-model model-viewer {
+  filter:
+    brightness(0.86)
+    contrast(1.15)
+    saturate(1.12);
+}
+
+/* HUB — SOFT AND NATURAL */
+
+.omphi-v2-hub-model model-viewer {
+  filter:
+    brightness(0.94)
+    contrast(1.08)
+    saturate(1.06);
+}
+
+/* NO ARTIFICIAL GROUND SHADOW */
+
+.omphi-v2-model-stage::after {
+  content: none !important;
+}
+/* =========================================
+   PPC — INDEPENDENT MUSIC
+========================================= */
+
+/* HERO 이미지가 없는 PPC 아카이브 */
+
+.archive.archive-no-hero .archive-navigation {
+  color: #111;
+  text-shadow: none;
+}
+
+.archive.archive-no-hero .archive-heading {
+  padding-top: calc(var(--header-height) + 110px);
+  padding-bottom: 65px;
+}
+
+/* PPC CONTENT */
+
+.archive-gallery > .ppc-layout {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
+}
+
+/* VIDEO */
+
+.ppc-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #111;
+}
+
+.ppc-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* SOUNDCLOUD LINK */
+
+.ppc-links {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 22px;
+}
+
+.ppc-soundcloud {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  width: 275px;
+  min-height: 52px;
+  padding: 12px 14px;
+
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #111;
+
+  font-size: 10px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ppc-soundcloud-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 25px;
+
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+
+  background: #111;
+  color: #fff;
+  font-size: 13px;
+}
+
+.ppc-soundcloud-arrow {
+  margin-left: auto;
+}
+
+.ppc-soundcloud:hover {
+  background: #f5f5f5;
+}
+
+/* MOBILE */
+
+@media (max-width: 520px) {
+  .archive.archive-no-hero .archive-heading {
+    padding-top: calc(var(--header-height) + 100px);
+  }
+
+  .ppc-links {
+    margin-top: 15px;
+  }
+}
+/* PPC — TEASER FILM TITLE */
+
+.ppc-video-title {
+  margin: 0 0 20px;
+  padding: 0;
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.ppc-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.ppc-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* =========================================
+   AQ ZENDA — FULL SCREEN PRODUCT SHOWCASE
+========================================= */
+
+.archive-gallery > .aqz-layout {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
+}
+
+.aqz-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+/* SECTION */
+
+.aqz-section {
+  width: 100%;
+  min-width: 0;
+}
+
+.aqz-label {
+  margin: 0 0 22px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #111;
+}
+
+/* =========================================
+   LOGO — FULL WIDTH / CROP WHITE SPACE
+========================================= */
+
+.aqz-logo {
+  width: 100%;
+  height: clamp(420px, 55vw, 760px);
+
+  margin: 0;
+  overflow: hidden;
+}
+
+.aqz-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+/* =========================================
+   PRODUCTS — ONE FULL SCREEN EACH
+========================================= */
+
+.aqz-product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: min(90svh, 1000px);
+  margin: 0;
+
+  overflow: hidden;
+  background: #fff;
+}
+
+.aqz-product img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  max-width: none;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+/* ZENDA TAG — TALL PRODUCT */
+
+.aqz-product--tag img {
+  transform: scale(1.15);
+}
+
+/* AQ SCALE — WIDE PRODUCT */
+
+.aqz-product--scale img {
+  transform: scale(1.1);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+
+  .aqz-layout {
+    gap: 75px;
+  }
+
+  .aqz-logo {
+    height: 400px;
+  }
+
+  .aqz-product {
+    height: 65svh;
+  }
+
+  .aqz-product--tag img {
+    transform: scale(1.1);
+  }
+
+  .aqz-product--scale img {
+    transform: scale(1.25);
+  }
+}
+
+@media (max-width: 520px) {
+
+  .aqz-layout {
+    gap: 60px;
+  }
+
+  .aqz-logo {
+    height: 260px;
+  }
+
+  .aqz-product {
+    height: 65svh;
+  }
+}
+/* =========================================
+   LOVE REVOLUTION 2016 — FINAL
+========================================= */
+
+.archive-gallery > .lr-layout {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
+}
+
+.lr-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.lr-section {
+  width: 100%;
+  min-width: 0;
+}
+
+/* SECTION INTRO */
+
+.lr-section-copy {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 48%)
+    minmax(0, 46%);
+  column-gap: 6%;
+  align-items: start;
+  margin-bottom: 35px;
+}
+
+.lr-section-copy h2 {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.lr-section-copy p {
+  margin: 0;
+  max-width: 540px;
+  font-size: 12px;
+  line-height: 1.75;
+  word-break: keep-all;
+  white-space: pre-line;
+}
+
+/* =========================================
+   LOGO + ALBUM COVER
+========================================= */
+
+.lr-identity {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  width: 100%;
+}
+
+.lr-identity figure {
+  min-width: 0;
+  margin: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+/* LEFT — LOGO */
+
+.lr-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.lr-logo img {
+  display: block;
+  width: 100%;
+  height: 94%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* RIGHT — COVER */
+
+.lr-cover {
+  background: #ffff35;
+}
+
+.lr-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* =========================================
+   ART DIRECTION / PHOTOGRAPHY
+========================================= */
+
+.lr-photo-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 6px;
+  width: 100%;
+  height: clamp(400px, 43vw, 650px);
+}
+
+.lr-photo-grid figure {
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.lr-photo-grid img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* DETAIL SHOT */
+
+.lr-photo-grid figure:first-child img {
+  object-position: center 40%;
+}
+
+/* MIRROR SELFIE */
+
+.lr-photo-grid figure:last-child img {
+  object-position: center;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+
+  .lr-layout {
+    gap: 75px;
+  }
+
+  .lr-section-copy {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .lr-photo-grid {
+    height: 450px;
+  }
+}
+
+@media (max-width: 520px) {
+
+  .lr-layout {
+    gap: 65px;
+  }
+
+  .lr-identity {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .lr-photo-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 6px;
+  }
+
+  .lr-photo-grid figure:first-child {
+    aspect-ratio: 3 / 4;
+  }
+
+  .lr-photo-grid figure:last-child {
+    aspect-ratio: 4 / 3;
+  }
+
+  .lr-photo-grid img {
+    height: 100%;
+  }
+}
+
+.work-image-wrap {
+  width: var(--thumbnail-height);
+  height: var(--thumbnail-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  pointer-events: none;
+  user-select: none;
+
+  filter:
+    grayscale(100%)
+    contrast(1.3)
+    brightness(1.08);
+
+  transition:
+    filter 0.45s ease,
+    transform 0.3s ease;
+}
+
+
+.work-item.is-photo .work-image {
+  object-fit: cover;
+}
+.work-image-wrap {
+  width: 210px;
+  height: 210px;
+}
+
+.work-image {
+  height: 100%;
+}
+.work-image-wrap {
+  width: 170px;
+  height: 170px;
+}
+
+.work-image {
+  height: 100%;
+}
+.work-image-wrap {
+  width: auto;
+  height: var(--thumbnail-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 0 9px rgba(255, 255, 255, 0.2));
+}
+
+.work-image {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: none;
+
+  object-fit: contain;
+
+  pointer-events: none;
+  user-select: none;
+
+  filter: grayscale(100%) contrast(1.15) brightness(1.02);
+
+  transition:
+    filter 0.45s ease,
+    transform 0.3s ease;
+}
+/* VALSASON — WHITE LOGO ON BLACK */
+
+.work-item.is-valsason .work-image,
+.work-item.is-valsason:hover .work-image,
+.work-item.is-valsason:focus-visible .work-image {
+  filter: invert(1) contrast(1.05);
+}
+
+.home {
+  height: 100svh;
+  min-height: 0;
+  padding-top: var(--header-height);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  overflow: hidden;
+}
+/* HOME — ONE SCREEN / NO FOOTER */
+
+body:has(#home:not([hidden])) {
+  height: 100svh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+body:has(#home:not([hidden])) .footer {
+  display: none;
+}
+
+/* THUMBNAIL FRAME */
+
+.work-image-wrap {
+  width: auto;
+  height: var(--thumbnail-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+
+  overflow: visible;
+
+  filter: drop-shadow(0 0 9px rgba(255, 255, 255, 0.15));
+
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+/* IMAGE */
+
+.work-image {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: none;
+
+  object-fit: contain;
+
+  pointer-events: none;
+  user-select: none;
+
+  filter:
+    grayscale(100%)
+    contrast(1.08)
+    brightness(1);
+
+  transition: filter 0.45s ease;
+}
+
+/* HOVER — THUMBNAIL WHOLE SCALE */
+
+.work-item:hover .work-image-wrap,
+.work-item:focus-visible .work-image-wrap {
+  transform: scale(1.07);
+}
+
+/* HOVER — COLOR RESTORE */
+
+.work-item:hover .work-image,
+.work-item:focus-visible .work-image {
+  filter: grayscale(0%) contrast(1) brightness(1);
+}
+
+/* OTHER THUMBNAILS DIM */
+
+.conveyor-track:has(.work-item:hover) .work-item {
+  opacity: 0.42;
+}
+
+.conveyor-track:has(.work-item:hover) .work-item:hover,
+.work-item:focus-visible {
+  opacity: 1;
+  z-index: 5;
+}
+
+.work-caption {
+  display: none;
+}
+/* LOVE REVOLUTION — 3 VERTICAL PHOTOS */
+
+.lr-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  width: 100%;
+  height: auto;
+}
+
+.lr-photo-grid figure {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  grid-row: auto;
+}
+
+.lr-photo-grid img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 사진별 크롭 위치 */
+
+.lr-photo-grid figure:first-child img {
+  object-position: center 40%;
+}
+
+.lr-photo-grid figure:nth-child(2) img {
+  object-position: center;
+  transform: scaleY(-1);
+}
+
+.lr-photo-grid figure:nth-child(3) img {
+  object-position: center;
+}
+
+/* MOBILE */
+
+@media (max-width: 520px) {
+  .lr-photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
