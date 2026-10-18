@@ -525,7 +525,7 @@ body.modal-open .character-cursor {
   font-weight: 700;
   line-height: 1;
 
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
 .works-list {
@@ -782,6 +782,11 @@ body.modal-open {
   font-size: 11px;
 
   text-shadow: 0 1px 8px rgba(0, 0, 0, .4);
+}
+
+/* ARCHIVE — HIDE PROJECT NUMBER */
+#archiveNumber {
+  display: none;
 }
 
 /* FULL BLEED HERO */
